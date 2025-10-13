@@ -29,7 +29,7 @@ public class Sortieren {
         for-Schleife von 0 bis Zeilen-Ende (i)
             loken[0][i] in ein zweites Array loken2[0][i]übertragen
 
-            
+
          */
 
     }
