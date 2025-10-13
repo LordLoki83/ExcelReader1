@@ -26,6 +26,19 @@ public class Sortieren {
 
     static void DatumAbgleich(Object loken[][]){
         /*
+        int f = 0;
+        erster Datensatz von loken in loken2 kopieren
+        for ( i = 0; i< loken.length; i++){
+            for( j= 0; j< loken[].length; j++){
+                if (loken2[0][0] == null){
+                    loken2[f][i] = loken[i][j];
+                    System.out.print("" + loken2[f][j]+ " ");
+                }else
+            
+            }
+        }
+        WENN Datensatz 2 von loken  gleich loken2
+
         for-Schleife von 0 bis Zeilen-Ende (i)
             loken[0][i] in ein zweites Array loken2[0][i]übertragen
 

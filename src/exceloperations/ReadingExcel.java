@@ -22,8 +22,9 @@ public class ReadingExcel {
         int i = 0;
         for( int r = 6 ; r <= rows; r++){
             XSSFRow row = sheet.getRow(r);
-            XSSFCell cell = row.getCell(2);
-            if(!cell.getStringCellValue().contains("1142")& !cell.getStringCellValue().contains("1163")& !cell.getStringCellValue().contains("1064")& !cell.getStringCellValue().contains("1063")){
+            XSSFCell cellLok = row.getCell(2);
+            XSSFCell cellArt = row.getCell(6);
+            if(!cellLok.getStringCellValue().contains("1142")& !cellLok.getStringCellValue().contains("1163")& !cellLok.getStringCellValue().contains("1064")& !cellLok.getStringCellValue().contains("1063")){
                 for(int c = 0; c < cols; c++){
                     XSSFCell cell1 = row.getCell(c); 
                     if (cell1.getCellType()== CellType.STRING){
