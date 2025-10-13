@@ -16,31 +16,39 @@ public class ReadingExcel {
         XSSFSheet sheet =  workbook.getSheetAt(0);
 
         int rows = sheet.getLastRowNum();
-        int cols = sheet.getRow(6).getLastCellNum();
+        int cols = sheet.getRow(5).getLastCellNum();
 
         Object loken[][] = new Object[rows-5][cols];
         int i = 0;
         for( int r = 6 ; r <= rows; r++){
             XSSFRow row = sheet.getRow(r);
             XSSFCell cellLok = row.getCell(2);
-            XSSFCell cellArt = row.getCell(6);
-            if(!cellLok.getStringCellValue().contains("1142")& !cellLok.getStringCellValue().contains("1163")& !cellLok.getStringCellValue().contains("1064")& !cellLok.getStringCellValue().contains("1063")){
-                for(int c = 0; c < cols; c++){
-                    XSSFCell cell1 = row.getCell(c); 
-                    if (cell1.getCellType()== CellType.STRING){
-                        String text = cell1.getStringCellValue();
-                        loken[i][c] = text;
-                        System.out.print("" + loken[i][c]+ " ");
-                    } else if (cell1.getCellType()== CellType.NUMERIC){
-                        Date text = cell1.getDateCellValue();
-                        loken[i][c] = text;
-                        System.out.print("" + loken[i][c]+ " ");
-                    }     
-                }
-                i++;
-                System.out.println();
+            XSSFCell cellArt = row.getCell(5);
+            if(!cellArt.getStringCellValue().contains("aREP")){
+
+                if(!cellLok.getStringCellValue().contains("1142")& !cellLok.getStringCellValue().contains("1163")& !cellLok.getStringCellValue().contains("1064")& !cellLok.getStringCellValue().contains("1063")){
+
+                    for(int c = 0; c < cols; c++){
+                        XSSFCell cell1 = row.getCell(c); 
+
+                        if (cell1.getCellType()== CellType.STRING){
+                            String text = cell1.getStringCellValue();
+                            loken[i][c] = text;
+                            System.out.print("" + loken[i][c]+ " ");
+
+                        } else if (cell1.getCellType()== CellType.NUMERIC){
+                            Date text = cell1.getDateCellValue();
+                            loken[i][c] = text;
+                            System.out.print("" + loken[i][c]+ " ");
+                        }  
+
+                    }
+                     i++;
+                    System.out.println();
+                }  
+
             } 
-            
+
         }
         System.out.println(i);
     }
