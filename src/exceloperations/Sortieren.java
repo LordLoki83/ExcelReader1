@@ -4,10 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
 public class Sortieren {
- 
-    static void DatumAbgleich(Object loken[][]) throws ParseException{
+    static int h = 0;
+    static Object DatumAbgleich(Object loken[][]) throws ParseException{
         Object loken2[][] = new Object[loken.length][8];
-        int f= 0;
         int b = 0;
         //Die erste Stelle in Loken2 befüllen, wenn diese leer ist
         if (loken2[0][0]== null){
@@ -18,13 +17,7 @@ public class Sortieren {
             loken2[0][4] = loken[0][4];
             loken2[0][5] = loken[0][5];
             loken2[0][7] = loken[0][7];
-            f++;
-             //for (int a = 0; a < loken2[0].length; a++){
-                //loken2[0][a] = loken[0][a];
-               // System.out.print(""+ loken2[0][a] + " ");
-
-             //}   
-             //System.out.println();
+            h++;
             }
         //Prüfen, ob Loken1 gleich Loken2 ist    
         for (int i = 0; i < loken2.length; i++){
@@ -50,12 +43,9 @@ public class Sortieren {
                     loken2[b][5] = loken[i][5];
                     loken2[b][7] = loken[i][7];
                     for (int a = 0; a < loken2[0].length; a++){
-                    //loken2[b][a] = loken[i][a];
-                    System.out.print("" + loken2[b][a]+ " ");
                     }   
 
-                    f++;
-                    System.out.println();
+                    h++;
                 //Wenn die Loknummer gleich ist, aber das Datum unterschiedlich
                 }else if(loken[i][2] == loken2[b][2] & !lok1Date1.equals(lok2Date1) & !lok1Date2.equals(lok2Date2) ) {
                     b++;
@@ -67,17 +57,20 @@ public class Sortieren {
                     loken2[b][5] = loken[i][5];
                     loken2[b][7] = loken[i][7];
                     for (int a = 0; a < loken2[0].length; a++){
-                    //loken2[b][a] = loken[i][a];
-                    System.out.print("" + loken2[b][a]+ " ");
                     } 
-                    f++;
-                    System.out.println();  
+                    h++;
                 }
             }else{
 
             }
             
         }
-    System.out.println(f);
+    return loken2 ;
+    }
+
+    static int Ruckgabe(){
+
+        return h;
+
     }
 }

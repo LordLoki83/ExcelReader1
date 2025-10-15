@@ -23,7 +23,7 @@ public class ReadingExcel {
 
         Object loken[][] = new Object[rows-5][cols];
         int i = 0;
-        
+
         for( int r = 6 ; r <= rows; r++){
             XSSFRow row = sheet.getRow(r);
             XSSFCell cellLok = row.getCell(2);
@@ -52,6 +52,14 @@ public class ReadingExcel {
                 }  
             } 
         }
-        Sortieren.DatumAbgleich(loken);
+        Object loken3[][]= (Object[][]) Sortieren.DatumAbgleich(loken);
+       
+        for (int a = 0; a < Sortieren.Ruckgabe(); a++ ){
+            for (int b = 0; b < loken3[0].length; b++ ){
+                System.out.print("" + loken3[a][b] + " ");
+        }
+         System.out.println(); 
+        }
+        System.out.print(Sortieren.Ruckgabe());
     }
 }
