@@ -23,12 +23,11 @@ public class ReadingExcel {
 
         Object loken[][] = new Object[rows-5][cols];
         int i = 0;
+        
         for( int r = 6 ; r <= rows; r++){
             XSSFRow row = sheet.getRow(r);
             XSSFCell cellLok = row.getCell(2);
             XSSFCell cellArt = row.getCell(5);
-
-
 
             if(!cellArt.getStringCellValue().contains("aREP")){
 
@@ -40,23 +39,19 @@ public class ReadingExcel {
                         if (cell1.getCellType()== CellType.STRING){
                             String text = cell1.getStringCellValue();
                             loken[i][c] = text;
-                            System.out.print("" + loken[i][c]+ " ");
 
                         } else if (cell1.getCellType()== CellType.NUMERIC){
                             Date text = cell1.getDateCellValue();
                             SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");   //Korrektur Format Datum
                             String datum = format.format(text);
                             loken[i][c] = datum;
-                            System.out.print("" + loken[i][c]+ " ");
                         }  
 
                     }
                     i++;
-                    System.out.println();
                 }  
             } 
         }
-        System.out.println(i);
         Sortieren.DatumAbgleich(loken);
     }
 }
