@@ -5,9 +5,14 @@ import java.text.ParseException;
 
 public class ReadingExcel {
     public static void main(String[] args) throws ParseException, IOException {
+        WochentagSortieren.MontagSortieren();
+                }
+            }
+        
+       
+    
 
-        Sortieren.MontagSortieren();
        
        
-    }
-}
+       
+    
